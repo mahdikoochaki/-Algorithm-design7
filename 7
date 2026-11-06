@@ -1,0 +1,25 @@
+def recursive_max(arr, left, right):
+
+    # Base case
+    if left == right:
+        return arr[left]
+
+    # Divide array into two parts
+    mid = (left + right) // 2
+
+    # Find maximum in left half
+    max_left = recursive_max(arr, left, mid)
+
+    # Find maximum in right half
+    max_right = recursive_max(arr, mid + 1, right)
+
+    # Compare both results
+    return max(max_left, max_right)
+
+
+# Test
+numbers = [12, 45, 7, 89, 23, 56, 91, 34]
+
+result = recursive_max(numbers, 0, len(numbers) - 1)
+
+print("Maximum element:", result)
